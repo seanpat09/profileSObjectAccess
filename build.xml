@@ -1,0 +1,18 @@
+<project basedir="." xmlns:sf="antlib:com.salesforce">
+
+    <taskdef resource="com/salesforce/antlib.xml"
+             classPath="lib/ant-salesforce.jar"
+             uri="antlib:com.salesforce"/>
+
+    <property file="build.properties"/>
+
+    <target name="retrieve">
+        <echo message="Retrieving src from ${username}"/>
+        <sf:retrieve username="${username}"
+                     password="${password}"
+                     serverurl="${endpoint}"
+                     retrieveTarget="src"
+                     unpackaged="src/package.xml"/>
+    </target>
+
+</project>
